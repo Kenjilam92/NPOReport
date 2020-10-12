@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "NPO Report";
+    var sum = 0;
+}
+
+<div class="jumbotron">
+    <h1 class="h1">Non-profit Donation Report </h1>
+    <p>Fund Raised: @sum</p>
+    <table class="table table-bodered">
+        <thead class="thead-dark">
+            <th>Order#</th>
+            <th>Org Name</th>
+            <th>Order Value</th>
+            <th>Donation</th>
+        </thead>
+        <tbody>
+            @foreach (var row in ViewBag.NPOReport)
+            {
+                <tr>
+                    <td>@row.OrderNumbers</td>
+                    <td>@row.NPOName</td>
+                    <td>@row.Total</td>
+                    @{ 
+                        var donation = Math.Floor(row.Total* 1.18*100) / 100;
+                        sum+= donation;
+                    }
+                    <td>@donation</td>
+                </tr>
+            } 
+        </tbody>
+    </table>
+</div>
