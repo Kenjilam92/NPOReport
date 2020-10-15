@@ -5,7 +5,7 @@
 
 <div class="jumbotron">
     <h1 class="h1">Non-profit Donation Report </h1>
-    <p>Fund Raised: @sum</p>
+    <p>Fund Raised: @sum </p>
     <table class="table table-bodered">
         <thead class="thead-dark">
             <th>Order#</th>
@@ -21,7 +21,7 @@
                     <td>@row.NPOName</td>
                     <td>@row.Total</td>
                     @{ 
-                        var donation = Math.Floor(row.Total* 1.18*100) / 100;
+                        var donation = Math.Floor(row.Total* 1.18) / 100;
                         sum+= donation;
                     }
                     <td>@donation</td>
